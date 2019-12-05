@@ -1,0 +1,44 @@
+{
+  "name": "websocket-video",
+  "description": "websocket-video",
+  "version": "7.6.4",
+  "main": "./server.js",
+  "keywords": [
+    "flash",
+    "html5",
+    "player",
+    "video",
+    "videojs"
+  ],
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hypo1986/websocket-chat.git"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "vjsstandard --fix",
+      "git add"
+    ],
+    "!(CHANGELOG)*.md": [
+      "remark --output --",
+      "git add"
+    ],
+    "lang/**/!(zh-Hans|zh-Hant)*.json": [
+      "node build/translations.js",
+      "git add docs/translations-needed.md"
+    ]
+  }
+}
